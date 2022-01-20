@@ -1,6 +1,6 @@
 import Header from "../../Components/Header";
 import { RiShoppingBag3Line } from "react-icons/ri";
-import { Div, Icon, Container, Form, HeaderText, Span, SpanH, Error, Image, DivSpan, SpanLogin} from "./style";
+import { Div, Icon, Container, Form, HeaderText, Span, SpanH, Error, Image, DivSpan, SpanLogin, ContainerCircle, Circle} from "./style";
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,6 +9,7 @@ import { useHistory, Link}  from 'react-router-dom'
 import Buttons from "../../Components/Button";
 import circleh from "../../assets/circle-header.svg"
 import { api } from "../../Services/api";
+import { useState } from "react";
 
 interface SignUpCredentials {
     email: string;
@@ -18,6 +19,7 @@ interface SignUpCredentials {
 
 function Signup({}) {
     const history = useHistory();
+    const [array] = useState(["1", "2", "3", "4", "5", "6"])
     
 
     const formSchema = yup.object().shape({
@@ -61,7 +63,21 @@ function Signup({}) {
                         <p>A vida é como um sanduíche, é preciso recheá-la com os <span>melhores</span> ingredientes.</p>   
                     </div>
                 </Div>
-                <Image src={circleh} alt="" />
+                <ContainerCircle>
+                    {array.map((item, index)=>(
+                        <Circle key={index}></Circle>
+                    ))}
+                </ContainerCircle>
+                <ContainerCircle>
+                    {array.map((item, index)=>(
+                        <Circle key={index}></Circle>
+                    ))}
+                </ContainerCircle>
+                <ContainerCircle>
+                    {array.map((item, index)=>(
+                        <Circle key={index}></Circle>
+                    ))}
+                </ContainerCircle>
             </div>
             <div className="form">         
                 <Form onSubmit={handleSubmit(onSubmitFunction)}>

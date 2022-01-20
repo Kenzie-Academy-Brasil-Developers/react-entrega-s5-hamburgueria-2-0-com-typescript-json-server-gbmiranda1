@@ -1,6 +1,6 @@
 import Header from "../../Components/Header";
 import { RiShoppingBag3Line } from "react-icons/ri";
-import { Div, Icon, Container, Form, Span, SpanH, Error, Image, DivSpan, SpanLogin} from "./style";
+import { Div, Icon, Container, Form, Span, SpanH, Error, Image, DivSpan, SpanLogin, Circle, ContainerCircle} from "./style";
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,6 +11,7 @@ import circleh from "../../assets/circle-header.svg"
 import { useAuth } from "../../Contexts/Auth/AuthContext";
 import { api } from "../../Services/api";
 import { useCart } from "../../Contexts/Cart/CartContext";
+import { useState } from "react";
 
 interface SignInCredentials {
     email: string;
@@ -21,6 +22,7 @@ function Login({}) {
     const history = useHistory();
     const {signIn} = useAuth();
     const {refresh,setRefresh} = useCart();
+    const [array] = useState(["1", "2", "3", "4", "5", "6"])
 
     const formSchema = yup.object().shape({
         email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
@@ -58,7 +60,21 @@ function Login({}) {
                         <p>A vida é como um sanduíche, é preciso recheá-la com os <span>melhores</span> ingredientes.</p>   
                     </div>
                 </Div>
-                <Image src={circleh} alt="" />
+                <ContainerCircle>
+                    {array.map((item, index)=>(
+                        <Circle key={index}></Circle>
+                    ))}
+                </ContainerCircle>
+                <ContainerCircle>
+                    {array.map((item, index)=>(
+                        <Circle key={index}></Circle>
+                    ))}
+                </ContainerCircle>
+                <ContainerCircle>
+                    {array.map((item, index)=>(
+                        <Circle key={index}></Circle>
+                    ))}
+                </ContainerCircle>
             </div>
             <div className="form">         
                 <Form onSubmit={handleSubmit(onSubmitFunction)}>

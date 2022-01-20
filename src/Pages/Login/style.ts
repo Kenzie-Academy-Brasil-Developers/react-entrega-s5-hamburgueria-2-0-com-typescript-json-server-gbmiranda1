@@ -10,6 +10,7 @@ export const Div = styled.div`
     box-shadow: 0px 4px 40px -20px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     max-width: 442px;
+    margin-bottom: 30px;
     svg{
         width: 20px;
         height: 20px;
@@ -103,6 +104,22 @@ export const SpanH = styled(Span)`
     margin: 0px;
     color: black;
 `;
+
+export const Circle = styled.div`
+    width: 10.9px;
+    height: 10.9px;
+    background: #F2F2F2;
+    margin-right:23.4px;
+    margin-bottom:23.4px;
+    border-radius:100%;
+    &:hover{
+        background: #27AE60;
+    }
+`;
+export const ContainerCircle = styled.div`
+    display: flex;
+`;
+
 
 export const Error = styled.ul`
     margin: 0px;
