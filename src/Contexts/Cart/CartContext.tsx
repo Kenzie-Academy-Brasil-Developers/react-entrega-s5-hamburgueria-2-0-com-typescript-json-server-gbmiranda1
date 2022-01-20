@@ -75,10 +75,12 @@ export const CartProvider = ({ children }: CartProvidersProps) => {
     })
   };
   const subQuantidade = (product: Cart) => {
+    console.log(product)
     if(product.quantidade > 1){
-      const cartSend = {...{category:product.category, img:product.img, name:product.name, price:product.price}, ...{quantidade:product.quantidade - 1, userId:user.id}}
+      product.quantidade = product.quantidade-1;
+    const cartSend = {...product}
    api
-      .patch("/cart", cartSend, {
+      .patch(`/cart/${product.id}`, cartSend, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
