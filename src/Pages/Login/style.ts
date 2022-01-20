@@ -117,7 +117,10 @@ export const Circle = styled.div`
     }
 `;
 export const ContainerCircle = styled.div`
-    display: flex;
+    display: none;
+    @media (min-width:1000px){
+        display: flex;
+    }
 `;
 
 
