@@ -21,8 +21,8 @@ function Signup({}) {
     
 
     const formSchema = yup.object().shape({
-        name: yup.string().required("Nome obrigatório"),
         email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
+        name: yup.string().required("Nome obrigatório"),
         password: yup.string().required("Senha obrigatória"),
     })
 
@@ -37,12 +37,12 @@ function Signup({}) {
     const onSubmitFunction = (data: SignUpCredentials) => {
         console.log(data)
         api
-        .post("/register/",  data )
+        .post("/register/",  data)
         .then((response) => {
             console.log(response.data)
         })
         .catch((err) => {
-            //onModalErrorOpen();
+            console.log(err)
         });
     }
 

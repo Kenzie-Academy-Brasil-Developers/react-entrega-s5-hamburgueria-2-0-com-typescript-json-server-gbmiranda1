@@ -39,7 +39,7 @@ function Login({}) {
         signIn(data)
         setTimeout(function() {
             window.location.reload();
-        }, 100);
+        }, 500);
         setRefresh(!refresh)
     }
 
